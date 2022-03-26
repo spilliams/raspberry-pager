@@ -37,6 +37,7 @@ Some ideas for user configuration:
 
 And the necessary agent configuration:
 
+- wifi connection settings
 - user credentials to on-call service
 - (potentially) mqtt broker credentials
 
