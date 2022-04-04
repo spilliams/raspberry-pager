@@ -32,8 +32,10 @@ Some ideas for user configuration:
 - custom sound effect
 - volume control (hardware potentiometer?)
 - screen brightness
+- screen rotation
+- UI scale?
 - sleep delay
-- a debug menu! version info, mqtt agent info...
+- a debug menu! version info...
 
 And the necessary agent configuration:
 
