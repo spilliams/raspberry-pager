@@ -4,4 +4,4 @@ bin/*
 **/artifacts/*
 
 # IDE
-.vscode/settings.json
+.vscode
