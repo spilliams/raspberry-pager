@@ -26,8 +26,8 @@ def text(message="Hello, world!"):
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 30
     )
 
-    size_x, size_y = draw.textsize(message, font)
-    text_x = disp.width
+    _, size_y = draw.textsize(message, font)
+    # text_x = disp.width
     text_y = (disp.height - size_y) // 2
 
     # for scrolling:
@@ -36,10 +36,8 @@ def text(message="Hello, world!"):
     #     x = (time.time() - t_start) * 100
     #     x %= size_x + disp.width
     draw.rectangle((0, 0, disp.width, disp.height), (0, 0, 0))
-    draw.text((int(text_x), text_y), message, font=font, fill=(255, 255, 255))
+    draw.text((0, text_y), message, font=font, fill=(255, 255, 255))
     disp.display(img)
-
-    time.sleep(2.0)
 
 
 if __name__ == "__main__":
