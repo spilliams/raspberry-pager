@@ -1,13 +1,17 @@
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from ST7789 import ST7789
+import sys
 import time
 
 
 class Display:
     def __init__(self):
         self._original_backlight = 13
-        self.set_font("/usr/share/fonts/truetype/range-mono/range-mono-regular.ttf")
+        try:
+            self.set_font("/usr/share/fonts/truetype/range-mono/range-mono-regular.ttf")
+        except FileNotFoundError:
+            self.set_font()
 
         self._st7789 = ST7789(
             rotation=90,  # Needed to display the right way up on Pirate Audio
@@ -21,7 +25,9 @@ class Display:
 
     def set_font(self, filename="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"):
         p = Path(filename)
-        p.is_file()
+        if not p.is_file():
+            print(f"Font {filename} does not exist or is not a file.", file=sys.stderr)
+            raise FileNotFoundError
         self._font = filename
 
     def clear(self):
