@@ -25,14 +25,14 @@ The physical device has the following features:
 - 4 buttons
 - a 1W speaker
 
-After it's fully configured, the main feature of the device is that when an incident happens, it'll let you know. And it'll provide you some basic ways to provide feedback to your on-call service.
+After it's fully configured, the main feature of the device is that when an incident happens, it'll let you know. And it'll give you some basic ways to provide feedback to your on-call service.
 
 Some ideas for user configuration:
 
 - custom sound effect
 - volume control (hardware potentiometer?)
-- screen brightness
-- screen rotation
+- screen brightness (see https://github.com/pimoroni/pirate-audio/blob/master/examples/backlight-pwm.py)
+- screen rotation (can I do this on the fly?)
 - UI scale?
 - sleep delay
 - a debug menu! version info...
