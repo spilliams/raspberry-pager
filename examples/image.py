@@ -1,3 +1,4 @@
+import sys
 from PIL import Image
 from ST7789 import ST7789
 
@@ -27,4 +28,7 @@ def image(filename="IMG_5292.jpeg"):
 
 
 if __name__ == "__main__":
-    image()
+    if len(sys.argv) == 2:
+        image(sys.argv[1])
+    else:
+        image()
