@@ -17,13 +17,8 @@ def image(filename="IMG_5292.jpeg"):
     width = disp.width
     height = disp.height
 
-    # Load an image.
-    print("Loading image: {}...".format(filename))
     image = Image.open(filename)
-
-    # Resize the image
     image = image.resize((width, height))
-
     disp.display(image)
 
 
