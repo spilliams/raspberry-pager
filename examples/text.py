@@ -16,10 +16,10 @@ def text(message="Hello, world!"):
     )
     disp.begin()
 
-    WIDTH = disp.width
-    HEIGHT = disp.height
+    width = disp.width
+    height = disp.height
 
-    img = Image.new("RGB", (WIDTH, HEIGHT), color=(0, 0, 0))
+    img = Image.new("RGB", (width, height), color=(0, 0, 0))
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype(
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 30
