@@ -1,13 +1,9 @@
 import sys
 import time
-
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-
-import ST7789
-
-SPI_SPEED_MHZ = 80
+from ST7789 import ST7789
 
 
 def text(message="Hello, world!"):
@@ -17,7 +13,7 @@ def text(message="Hello, world!"):
         cs=1,  # SPI port Chip-select channel
         dc=9,  # BCM pin used for data/command
         backlight=13,
-        spi_speed_hz=SPI_SPEED_MHZ * 1000 * 1000,
+        spi_speed_hz=80 * 1000 * 1000,
     )
     disp.begin()
 
@@ -42,6 +38,8 @@ def text(message="Hello, world!"):
     draw.rectangle((0, 0, disp.width, disp.height), (0, 0, 0))
     draw.text((int(text_x), text_y), message, font=font, fill=(255, 255, 255))
     disp.display(img)
+
+    time.sleep(2.0)
 
 
 if __name__ == "__main__":
