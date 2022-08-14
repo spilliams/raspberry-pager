@@ -1,11 +1,14 @@
-import time
+from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from ST7789 import ST7789
+import time
 
 
 class Display:
     def __init__(self):
         self._original_backlight = 13
+        self.set_font("/usr/share/fonts/truetype/range-mono/range-mono-regular.ttf")
+
         self._st7789 = ST7789(
             rotation=90,  # Needed to display the right way up on Pirate Audio
             port=0,  # SPI port
@@ -15,6 +18,11 @@ class Display:
             spi_speed_hz=80 * 1000 * 1000,
         )
         self._st7789.begin()
+
+    def set_font(self, filename="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"):
+        p = Path(filename)
+        p.is_file()
+        self._font = filename
 
     def clear(self):
         width = self._st7789.width
@@ -45,9 +53,7 @@ class Display:
         height = self._st7789.height
         img = Image.new("RGB", (width, height), color=(0, 0, 0))
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype(
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 30
-        )
+        font = ImageFont.truetype(self._font, 30)
 
         size_x, size_y = draw.textsize(message, font)
         text_x = (width - size_x) // 2
