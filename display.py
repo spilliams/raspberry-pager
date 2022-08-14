@@ -14,7 +14,7 @@ class Display:
             self.set_font()
 
         self._st7789 = ST7789(
-            rotation=90,  # Needed to display the right way up on Pirate Audio
+            rotation=270,  # Needed to display the right way up on Pirate Audio
             port=0,  # SPI port
             cs=1,  # SPI port Chip-select channel
             dc=9,  # BCM pin used for data/command
