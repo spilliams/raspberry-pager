@@ -40,11 +40,9 @@ class Display:
         self._st7789.display(image)
 
     def turn_off(self):
-        self.clear()
         self._st7789.set_backlight(0)
 
     def turn_on(self):
-        self.clear()
         self._st7789.set_backlight(self._original_backlight)
 
     def cover_with_image(self, filename):
