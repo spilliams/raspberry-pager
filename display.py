@@ -71,10 +71,11 @@ class Display:
 def main():
     d = Display()
     d.clear()
-    d.cover_with_image("IMG_5292.jpeg")
+    d.cover_with_image("examples/IMG_5292.jpeg")
     time.sleep(2.0)
     d.message()
     time.sleep(2.0)
+    d.turn_off()
     d.clear()
 
 
