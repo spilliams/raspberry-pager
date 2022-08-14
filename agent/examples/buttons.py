@@ -21,4 +21,5 @@ class Buttons:
 
 if __name__ == "__main__":
     b = Buttons()
+    print("press buttons. Ctrl+C to interrupt")
     signal.pause()
