@@ -23,7 +23,7 @@ class Pager:
         self._display.clear()
 
     def _display_image(self):
-        self._display.cover_with_image("IMG5292.jpeg")
+        self._display.cover_with_image("IMG_5292.jpeg")
         time.sleep(2)
         self._display.clear()
 
