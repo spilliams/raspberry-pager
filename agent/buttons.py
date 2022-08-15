@@ -21,7 +21,7 @@ class Buttons:
 
     def handle_button(self, pin):
         label = self._labels[self._pins.index(pin)]
-        if not self._register.has_key(label):
+        if label not in self._register.keys():
             return
         if self._register[label] is None:
             return
