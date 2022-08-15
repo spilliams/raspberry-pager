@@ -5,9 +5,6 @@ import wave
 
 class Speaker:
     def __init__(self, samplerate=44100):
-        self._vu_left = 0
-        self._vu_right = 0
-        self._graph = [0 for _ in range(44)]
         self._wave = None
         self._out_stream = sounddevice.OutputStream(
             device="default",
@@ -30,11 +27,6 @@ class Speaker:
         outframes = len(raw_data) // 4
         data = numpy.frombuffer(raw_data, dtype="int16")
         outdata[:][:outframes] = data.reshape((outframes, 2))
-
-        self._vu_left = numpy.average(numpy.abs(outdata[:, 0])) / 65535.0 * 10
-        self._vu_right = numpy.average(numpy.abs(outdata[:, 1])) / 65535.0 * 10
-        self._graph.append(min(1.0, max(self._vu_left, self._vu_right)))
-        self._graph = self._graph[-44:]
 
         if outframes < frames:
             # self._playback_stopped()
