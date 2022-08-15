@@ -1,5 +1,6 @@
 from buttons import Buttons
 from display import Display
+import signal
 from speaker import Speaker
 import time
 
@@ -31,3 +32,9 @@ class Pager:
         self._speaker.play_clip("7.wav")
         time.sleep(2)
         self._display.clear()
+
+
+if __name__ == "__main__":
+    p = Pager()
+    print("pager is running. Ctrl+C to stop")
+    signal.pause()
