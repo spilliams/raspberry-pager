@@ -4,7 +4,7 @@ import wave
 
 
 class Speaker:
-    def __init__(self):
+    def __init__(self, samplerate=44100):
         self._vu_left = 0
         self._vu_right = 0
         self._graph = [0 for _ in range(44)]
@@ -13,11 +13,11 @@ class Speaker:
             device="default",
             dtype="int16",
             channels=2,
-            samplerate=22000,
+            samplerate=samplerate
             callback=self.audio_playback_callback,
         )
 
-    def play_clip(self, filename="weow.wav"):
+    def play_clip(self, filename="7.wav"):
         self._read_wav_file(filename)
         self._out_stream.start()
 
