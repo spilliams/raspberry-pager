@@ -18,6 +18,10 @@ class Pager:
         self._buttons.register_button(self._buttons.Y, self._display_message)
         self._buttons.register_button(self._buttons.A, self._play_sound)
 
+        time.sleep(0.5)
+
+        self._display.clear()
+
     def _display_image(self):
         self._display.cover_with_image("IMG5292.jpeg")
         time.sleep(2)
