@@ -10,7 +10,7 @@ class Speaker:
             device="default",
             dtype="int16",
             channels=2,
-            samplerate=samplerate
+            samplerate=samplerate,
             callback=self.audio_playback_callback,
         )
 
